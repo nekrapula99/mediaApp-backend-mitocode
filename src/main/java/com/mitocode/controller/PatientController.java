@@ -39,7 +39,6 @@ public class PatientController {
         List<PatientDTO> list = service.findAll().stream().map(this::convertToDto).toList();
 
         return ResponseEntity.ok(list);
-        //return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
@@ -63,7 +62,6 @@ public class PatientController {
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getIdPatient()).toUri();
 
         return ResponseEntity.created(location).build();
-        //return new ResponseEntity<>(obj, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
